@@ -25,7 +25,21 @@ while inputToProcess == "" {
         // Verify that the input is not an empty and less than or equal to 30 characters long
         if notNilInput != "" && notNilInput.characters.count <= 30 {
             
-            inputToProcess = notNilInput
+            // Iterate over the input and make sure there are only uppercase characters
+            var validInput = true
+            for scalar in notNilInput.unicodeScalars {
+                // A = 65 as a Unicode scalar value, and Z = 90 as a Unicode scalar value
+                // If the value is outside this range, it's not valid
+                if scalar.value < 65 || scalar.value > 90 {
+                    validInput = false
+                    break
+                }
+            }
+            // Only proceed if all characters were uppercase
+            if validInput == true {
+                inputToProcess = notNilInput
+            }
+            
             
         }
         
