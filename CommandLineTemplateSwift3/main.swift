@@ -40,9 +40,7 @@ while inputToProcess == "" {
                 inputToProcess = notNilInput
             }
             
-            
         }
-        
         
     }
     
@@ -59,9 +57,22 @@ while inputToProcess == "" {
  
  */
 
-// Add 'process' code below....
-print("replace with process logic")
+// These are the letters not permitted
+var invalidLetters = "ABCDEFGJKLMPQRTUVWY"
 
+var validSignLetters = true // Assume word is valid until proven otherwise
+for character in inputToProcess.characters {
+    
+    // Convert the character to a string
+    var characterAsString = String(character)
+    
+    // See if the current letter can be found within the string of letters not permitted
+    if let result = invalidLetters.range(of: characterAsString) {
+        validSignLetters = false
+        break // stop since an invalid letter was found
+    }
+    
+}
 
 /*
  
@@ -70,7 +81,9 @@ print("replace with process logic")
  Here is where you report the results of the 'process' section above.
  
  */
-
-// Add 'output' code below... replace what is here as needed.
-print("The input given was: \(inputToProcess)")
-
+// Tell the user if the word is valid or not
+if validSignLetters == true {
+    print("YES")
+} else {
+    print("NO")
+}
