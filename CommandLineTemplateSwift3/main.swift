@@ -13,7 +13,7 @@ var inputToProcess : String = ""
 while inputToProcess == "" {
     
     // Show the prompt
-    print("Ask the question here? ", terminator: "")
+    print("Input word is? ", terminator: "")
     
     // Get the user's input
     var input : String?
@@ -22,7 +22,12 @@ while inputToProcess == "" {
     // Use optional binding to see if the string can be unwrapped (to see if it is not nil)
     if let notNilInput = input {
         
-        
+        // Verify that the input is not an empty and less than or equal to 30 characters long
+        if notNilInput != "" && notNilInput.characters.count <= 30 {
+            
+            inputToProcess = notNilInput
+            
+        }
         
         
     }
